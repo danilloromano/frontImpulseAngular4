@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<table className="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Sobrenome</th>
+      <th>email</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.name}}</td>
+        <td>{{user.last_name}}</td>
+        <td>{{user.email}}</td>
+      </tr>
+  </tbody>
+</table> 
