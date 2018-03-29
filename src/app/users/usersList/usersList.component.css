@@ -7,9 +7,15 @@
     top: 180px;
  }
 
- .content {
+ .tableWrapper {
+    display: flex; 
+    justify-content: center;
+ }
+
+ .table {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items:center;
+    
+    margin-top: 5%;
+    width: 50%;
  }
