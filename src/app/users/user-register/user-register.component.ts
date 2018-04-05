@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Http ,Headers} from '@angular/http';
-import {UserComponent} from '../user/user.component';
-import {UsersListComponent} from '../usersList/usersList.component'
-
+import { UserComponent } from '../user/user.component';
+import { UserService } from '../user.service';
+import { UsersListComponent } from '../usersList/usersList.component'
 
 @Component({
   selector: 'app-user-register',
@@ -12,14 +11,12 @@ import {UsersListComponent} from '../usersList/usersList.component'
 
 export class UserRegisterComponent {
 
-  url:string;
-  user:UserComponent = new UserComponent;
-  http:Http;
-  userList:UsersListComponent;
+  user: UserComponent = new UserComponent;
+  service: UserService;
+  userList: UsersListComponent
 
-  constructor(http:Http, userList:UsersListComponent){
-    this.url = 'http://localhost:8080/users/newUser';
-    this.http = http;
+  constructor(service:UserService,userList: UsersListComponent) {
+    this.service = service;
     this.userList = userList;
   }
 
@@ -27,17 +24,13 @@ export class UserRegisterComponent {
     event.preventDefault();
     console.log(this.user);
 
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
-    this.http.post(this.url, JSON.stringify(this.user), { headers: headers })
+    this.service.regist(this.user)
       .subscribe(() => {
         this.user = new UserComponent();
-        this.userList.getUsers();
+        this.service.getUsers()
+        .subscribe(users=> this.userList.users = users)
         console.log('User salvo');
       }, erro =>  console.log(erro));
-    }
-
-
+  }
 
 }

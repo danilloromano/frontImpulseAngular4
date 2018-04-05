@@ -1,8 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { Http } from '@angular/http'
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../header/header.component';
 import { UserRegisterComponent } from '../user-register/user-register.component'
-import { Observable } from 'rxjs/Observable';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-users',
@@ -14,24 +13,19 @@ export class UsersListComponent implements OnInit {
   users:Object[] = [];
   displayedColumns = ['name', 'lastName', 'email'];
   dataSource = this.users;
-  http:Http;
 
-  constructor(http:Http) { 
-    this.http = http
-  }
+  constructor(service: UserService) { 
 
-  getUsers() {
-    this.http
-    .get('http://localhost:8080/userData')
-    .map(res => res.json())
-    .subscribe(users => {
-      this.users = users;
-      console.log(users);
-    }, error => console.log(error))
+    service.getUsers()
+    .subscribe (
+      users => this.users = users,
+      erro => console.log(erro)
+    );
   }
 
   ngOnInit() {
-    this.getUsers()
+    
   }
+  
 
 }

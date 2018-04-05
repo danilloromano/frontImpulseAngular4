@@ -40,7 +40,8 @@ import { UserRegisterComponent } from './users/user-register/user-register.compo
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSortModule,
-    FormsModule
+    FormsModule,
+    usersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
