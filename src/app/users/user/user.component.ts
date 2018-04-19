@@ -7,7 +7,8 @@ import { Http } from '@angular/http';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-
+  
+  id: number;
   @Input() name: string;
   @Input() last_name: string;
   @Input() email: string;

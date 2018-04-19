@@ -28,7 +28,7 @@ export class UserRegisterComponent {
       .subscribe(() => {
         this.user = new UserComponent();
         this.service.getUsers()
-        .subscribe(users=> this.userList.users = users)
+        .subscribe(users => this.userList.users = users)
         console.log('User salvo');
       }, erro =>  console.log(erro));
   }

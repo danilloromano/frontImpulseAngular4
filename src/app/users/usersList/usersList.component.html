@@ -1,7 +1,16 @@
 <app-header></app-header>
 
 <div class ="tableWrapper">
-  <div class="table mat-elevation-z8">
+  <div class="container mat-elevation-z8">
+
+    <div class="header-table --space-between">
+      <mat-form-field >
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+
+      <button mat-rised-button class="btn-accent-defalt">Novo</button>
+    </div>
+
     <mat-table #table class=""[dataSource]="users">
 
       <ng-container matColumnDef="name">
@@ -19,10 +28,31 @@
         <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
       </ng-container>
 
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+        <mat-cell *matCellDef="let user"> 
+          <button mat-icon-button (click)="fuckRemove(user)">
+              <i class="material-icons">delete</i>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="edit">
+          <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+            <mat-cell *matCellDef="let user"> 
+              <button mat-icon-button>
+                  <i class="material-icons">mode_edit</i>
+              </button>
+            </mat-cell>
+      </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
   </div>
 </div>
 
-<app-user-register></app-user-register>
+<div class ="tableWrapper --mt-lg">
+  <div class="container mat-elevation-z8">
+      <app-user-register></app-user-register>
+  </div>
+</div>

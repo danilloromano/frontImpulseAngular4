@@ -1,27 +1,28 @@
+  <div class="modal-insert">
+    <div class="form-position">
+      <div class="fx-form-wrapper">
+        <form class="example-form" (submit)='register($event)'>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nome" [(ngModel)]="user.name" name="name">
+          </mat-form-field>
 
-<div class="form-position">
-  <div class="fx-form-wrapper">
-    <form class="example-form" (submit)='register($event)'>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Nome" [(ngModel)]="user.name" name="name">
-      </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Sobrenome" [(ngModel)]="user.last_name" name="last_name"></textarea>
+          </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Sobrenome" [(ngModel)]="user.last_name" name="last_name"></textarea>
-      </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Email" [(ngModel)]="user.email" name="email"></textarea>
+          </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Email" [(ngModel)]="user.email" name="email"></textarea>
-      </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Senha" [(ngModel)]="user.password" name="password"></textarea>
+          </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Senha" [(ngModel)]="user.password" name="password"></textarea>
-      </mat-form-field>
-
-      <div>
-        <button mat-button color="accent">Salvar</button>
-        <button mat-button color="warn">Cancelar</button>
+          <div>
+            <button mat-button color="accent">Salvar</button>
+            <button mat-button color="warn">Cancelar</button>
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   </div>
-</div>

@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 
 import { routing } from './app.routs';
 import { UserRegisterComponent } from './users/user-register/user-register.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { UserRegisterComponent } from './users/user-register/user-register.compo
     LoginComponent,
     HomeComponent,
     UserRegisterComponent,
+    DialogComponent,
     
     
   ],

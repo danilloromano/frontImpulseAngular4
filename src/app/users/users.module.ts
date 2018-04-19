@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 @NgModule({
     declarations: [UserComponent],
     imports:[CommonModule],
-    providers: [ UserService ]
+    providers: [ UserService, UserComponent]
 })
 
 export class usersModule {

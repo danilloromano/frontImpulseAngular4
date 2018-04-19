@@ -9,6 +9,8 @@ export class UserService {
 
     getUserUrl:string;
     postUrl:string;
+    deleteUrl:string;
+    putUrl:string;
     headers: Headers;
     http:Http;
 
@@ -16,6 +18,8 @@ export class UserService {
     constructor(http:Http){
         this.getUserUrl = 'http://localhost:8080/userData';
         this.postUrl = 'http://localhost:8080/users/newUser';
+        this.deleteUrl = 'http://localhost:8080/users/deleteUser'
+        this.putUrl = 'http://localhost:8080/user/change';
         this.http = http;
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');
@@ -28,11 +32,18 @@ export class UserService {
         .map(res => res.json())
     }
 
-    regist(user:UserComponent):Observable<Response> {
+    regist(user: UserComponent):Observable<Response> {
         return this.http
         .post(this.postUrl, JSON.stringify(user), 
                 { headers: this.headers }); 
     }
+
+    remove(user: UserComponent): Observable<Response> {
+        return this.http
+        .delete(this.deleteUrl + '/' + user.id);
+    }
+
+    change(){}
 
     
   

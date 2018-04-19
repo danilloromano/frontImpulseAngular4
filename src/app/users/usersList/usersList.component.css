@@ -10,12 +10,43 @@
  .tableWrapper {
     display: flex; 
     justify-content: center;
+    align-items: center;
  }
 
- .table {
+ .container {
     display: flex;
     flex-direction: column;
-    
-    margin-top: 5%;
-    width: 50%;
+    position: relative;
+    min-width: 70%;
  }
+
+ .header-table {
+    min-height: 64px;
+    padding: 8px 24px 0;
+ }
+
+ .mat-form-field {
+    font-size: 14px;
+    width: 30%;
+  }
+
+.--space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-accent-defalt {
+  height: 30px !important;
+  background-color: #2D8728;
+  color: white;
+  padding: 0 20px;
+  border-radius: 3px;
+  border-color: transparent;
+  box-shadow: 0 5px 5px gray;
+  outline: none;
+}
+
+.--mt-lg {
+  margin-top: 5%;
+}
